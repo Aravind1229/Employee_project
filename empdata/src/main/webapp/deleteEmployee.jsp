@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>SEARCH EMPLOYEE</title>
+<meta charset="UTF-8">
+<title>DELETE EMPLOYEE</title>
 <style type="text/css">
 .div{
 margin: 30px auto;
@@ -25,8 +25,9 @@ margin: 30px auto;
 </head>
 <body>
 <div class="div">
-<p><font color="red">${message}</font></p>
-<form action="/searchemployee" method="post">
+<p><font color="red">${message1}</font></p>
+<p><font color="yellow">${message}</font></p>
+<form action="/deleteemployee" method="post">
 ID:<br><input type="text" name="id"/><br>
 <input type="submit" value="submit"/>
 </form>

@@ -13,8 +13,8 @@ import jakarta.transaction.Transactional;
 public class EmployeeRepository {
 @Autowired
 EntityManager em;
-public Employee insertEmployee(String firstName,String lastName,Integer age,String designation,Integer salary) {
-	Employee employee=new Employee(firstName,lastName,age,designation,salary);
+public Employee insertEmployee(String firstName,String lastName,Integer age,Integer salary,String designation) {
+	Employee employee=new Employee(firstName,lastName,age,salary,designation);
 	em.persist(employee);
 	return employee;
 }

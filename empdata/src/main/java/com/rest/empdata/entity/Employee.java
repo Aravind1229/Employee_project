@@ -14,18 +14,19 @@ private Integer id;
 private String firstName;
 private String lastName;
 private Integer age;
-private String designation;
 private Integer salary;
+private String designation;
+
 public Employee() {
 	super();
 }
-public Employee(String firstName, String lastName, Integer age, String designation, Integer salary) {
+public Employee(String firstName, String lastName, Integer age, Integer salary, String designation) {
 	super();
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
-	this.designation = designation;
 	this.salary = salary;
+	this.designation = designation;
 }
 public String getFirstName() {
 	return firstName;
@@ -45,17 +46,17 @@ public Integer getAge() {
 public void setAge(Integer age) {
 	this.age = age;
 }
-public String getDesignation() {
-	return designation;
-}
-public void setDesignation(String designation) {
-	this.designation = designation;
-}
 public Integer getSalary() {
 	return salary;
 }
 public void setSalary(Integer salary) {
 	this.salary = salary;
+}
+public String getDesignation() {
+	return designation;
+}
+public void setDesignation(String designation) {
+	this.designation = designation;
 }
 public Integer getId() {
 	return id;

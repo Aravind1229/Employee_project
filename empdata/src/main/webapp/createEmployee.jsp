@@ -7,9 +7,19 @@
 <title>CREATE EMPLOYEE</title>
 <style type="text/css">
 .div{
-border: 5px outset red;
-background-color: lightblue;
-text-align: center;
+margin: 30px auto;
+    padding: 10px;
+    width: 400px;
+    
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align:center;
+	
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px #888;
+	
+	background: #0804;
 }
 </style>
 </head>

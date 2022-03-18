@@ -19,8 +19,12 @@ public class EmployeeController {
 @Autowired
 EmployeeRepository repository;
 @GetMapping("/")
+public String home() {
+	return "home.jsp";
+}
+@GetMapping("/admin")
 public String login() {
-	return "login.html";
+	return "login.jsp";
 }
 @GetMapping(value="/create")
 public String create() {
@@ -30,9 +34,19 @@ public String create() {
 public String display() {
 	return "search.jsp";
 }
+@RequestMapping(value="/update")
+public String update() {
+	return "updateEmployee.jsp";
+}
+@RequestMapping(value="/delete")
+public String delete() {
+	return "deleteEmployee.jsp";
+}
 @RequestMapping(value="/createemployee",method = RequestMethod.POST)
-public String createEmployee(@RequestParam String firstname,@RequestParam String lastname,@RequestParam Integer age,@RequestParam String designation,@RequestParam Integer salary,ModelMap model) {
-	repository.insertEmployee(firstname,lastname,age,designation,salary);
+public String createEmployee(@RequestParam String firstname,@RequestParam String lastname,
+		@RequestParam Integer age,@RequestParam Integer salary,
+		@RequestParam String designation,ModelMap model) {
+	repository.insertEmployee(firstname,lastname,age,salary,designation);
 	model.put("message","User is inserted");
 	return "createEmployee.jsp";
 }
@@ -47,11 +61,37 @@ public String findEmployee(@RequestParam Integer id,ModelMap model) {
 	model.put("id",employee.getId());
 	model.put("firstname", employee.getFirstName());
 	model.put("lastname", employee.getLastName());
-	model.put("age", employee.getSalary());
-	model.put("salary", employee.getAge());
+	model.put("age", employee.getAge());
+	model.put("salary", employee.getSalary());
 	model.put("designation",employee.getDesignation());
 	return "details.jsp";
 	}
 	
+}
+@RequestMapping(value="/updateemployee")
+public String updateEmployee(@RequestParam Integer id,@RequestParam Integer salary,ModelMap model) {
+	Employee employee = repository.findById(id);
+	if(employee==null) {
+		model.put("message1","User not found");
+		return "updateEmployee.jsp";
+	}
+	else {
+	repository.updateEmployee(id,salary);
+	model.put("message","User salary is updated");
+	return "updateEmployee.jsp";
+	}
+}
+@RequestMapping(value="/deleteemployee")
+public String deleteEmployee(@RequestParam Integer id,ModelMap model) {
+	Employee employee = repository.findById(id);
+	if(employee==null) {
+		model.put("message1","User not found");
+		return "deleteEmployee.jsp";
+	}
+	else {
+	repository.deleteById(id);
+	model.put("message","User is deleted");
+	return "deleteEmployee.jsp";
+	}
 }
 }
