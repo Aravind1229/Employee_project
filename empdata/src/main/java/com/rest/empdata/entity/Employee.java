@@ -16,18 +16,24 @@ private String lastName;
 private Integer age;
 private Integer salary;
 private String designation;
+private String password;
+private String passwordStatus;
 
 public Employee() {
 	super();
 }
-public Employee(String firstName, String lastName, Integer age, Integer salary, String designation) {
+public Employee(String firstName, String lastName, Integer age, Integer salary, String designation,
+		String password, String passwordStatus) {
 	super();
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
 	this.salary = salary;
 	this.designation = designation;
+	this.password = password;
+	this.passwordStatus = passwordStatus;
 }
+
 public String getFirstName() {
 	return firstName;
 }
@@ -60,6 +66,18 @@ public void setDesignation(String designation) {
 }
 public Integer getId() {
 	return id;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
+}
+public String getPasswordStatus() {
+	return passwordStatus;
+}
+public void setPasswordStatus(String passwordStatus) {
+	this.passwordStatus = passwordStatus;
 }
 @Override
 public String toString() {

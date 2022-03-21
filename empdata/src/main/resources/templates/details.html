@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>EMPLOYEE DETAILS</title>
+<style type="text/css">
+body{
+background-image: url("home.jpg");
+}
+.div{
+margin: 200px auto;
+background:rgba(110, 37, 148,0.6);
+padding: 10px;
+width: 400px;
+display: flex;
+flex-direction:column;
+align-items: center;
+text-align:center;
+border-radius: 10px;
+box-shadow: 2px 2px 2px #888;
+}
+header{
+height:auto;
+box-shadow:0 1px 10px 0 orange;
+display: flex;
+align-items: center;
+justify-content:space-between;
+position: fixed;
+width: 100%;
+background-color:rgba(255,255,255,0.6);
+top: 0;
+}
+header .logo{
+display: inline-block;
+}
+header nav{
+display: inline-block;
+}
+header nav ul{
+border:0;
+margin: 0;
+padding: 0;
+list-style-type: none;
+background-color:#519872;
+}
+header nav ul li{
+display: inline-block;
+border-right: 2px solid #EE4266;
+padding:14px;
+
+}
+header nav ul li a{
+display:block;
+color: #C2E812;
+text-align:center;
+text-decoration: none;
+}
+header nav ul li section{
+display:block;
+height:auto;
+align-items: center;
+}
+
+header nav ul li section form input{
+border-radius: 4px;
+max-width: 250px;
+}
+header nav ul li section form button{
+border-radius: 4px;
+}
+th{
+background-color:#888;
+}
+td{
+background-color: #090C08;
+color: white;
+}
+</style>
+</head>
+<body>
+<header>
+<section class="logo">Your Logo</section>
+<nav>
+<ul>
+<li><a href="/">Home</a></li><!--
+--><li><a href="/admin/details">All Employees</a></li><!--
+--><li><a href="/logout">Log Out</a></li>
+</ul>
+</nav>
+</header>
+<div class="div">
+<table>
+<tr>
+<th>Id</th>
+<td th:text="${id}"></td>
+</tr>
+<tr>
+<th>First Name</th>
+<td th:text="${firstname}"></td>
+</tr>
+<tr>
+<th>Last Name</th>
+<td th:text="${lastname}"></td>
+</tr>
+<tr>
+<th>Age</th>
+<td th:text="${age}"></td>
+</tr>
+<tr>
+<th>Salary</th>
+<td th:text="${salary}"></td>
+</tr>
+<tr>
+<th>Designation</th>
+<td th:text="${designation}"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

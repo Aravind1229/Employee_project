@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EMPLOYEE LOGIN</title>
+<style type="text/css">
+body{
+background-image: url("home.jpg");
+}
+.div{
+margin: 60px auto;
+background:rgba(110, 37, 148,0.6);
+padding: 10px;
+width: 400px;
+display: flex;
+flex-direction:column;
+align-items: center;
+text-align:center;
+border-radius: 10px;
+box-shadow: 2px 2px 2px #888;
+}
+header{
+height:auto;
+box-shadow:0 1px 10px 0 orange;
+display: flex;
+align-items: center;
+justify-content:space-between;
+position: fixed;
+width: 100%;
+background-color:rgba(255,255,255,0.6);
+top: 0;
+}
+header .logo{
+display: inline-block;
+}
+header nav{
+display: inline-block;
+}
+header nav ul{
+border:0;
+margin: 0;
+padding: 0;
+list-style-type: none;
+background-color:#519872;
+}
+header nav ul li{
+display: inline-block;
+border-right: 2px solid #EE4266;
+padding:14px;
+
+}
+header nav ul li a{
+display:block;
+color: #C2E812;
+text-align:center;
+text-decoration: none;
+}
+header nav ul li section{
+display:block;
+height:auto;
+align-items: center;
+}
+
+header nav ul li section form input{
+border-radius: 4px;
+max-width: 250px;
+}
+header nav ul li section form button{
+border-radius: 4px;
+}
+
+</style>
+</head>
+<body>
+<header>
+<section class="logo">Your Logo</section>
+<nav>
+<ul>
+<li><a href="/">Home</a></li><!--
+--><li><a href="/admin">Admin Home</a></li><!--
+--><li><a href="/">Log Out</a></li>
+</ul>
+</nav>
+</header>
+<div class="div">
+<h1>Employee Login</h1>
+<p><font color="red" th:text=${errormessage}></font></p>
+<p><font color="red" th:text=${errormessage2}></font></p>
+    <form method="post" action="/user">
+        Id:<br><input name="id" type="text" /><br> 
+        Password:<br><input name="password" type="password" /><br>
+        <input type="submit" />
+    </form>
+    </div>
+</body>
+</html>
