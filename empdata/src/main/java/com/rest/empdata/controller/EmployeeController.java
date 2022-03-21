@@ -198,12 +198,12 @@ public String userLogin(@RequestParam Integer id,@RequestParam String password,M
 		model.put("errormessage","Employee Not Found");
 		return "loginuser";
 	}
-	else if(employee.getPasswordStatus().equals("dummy")) {
-		return "changePassword";
-	}
 	else if(!((id==(employee.getId()))&&((password.equals(employee.getPassword()))))) {
 		model.put("errormessage","Invalid Credentials");
 		return "loginuser";
+	}
+	else if(employee.getPasswordStatus().equals("dummy")) {
+		return "changePassword";
 	}
 		else {
 		model.put("id",employee.getId());
@@ -218,7 +218,11 @@ public String userLogin(@RequestParam Integer id,@RequestParam String password,M
 @RequestMapping(value="/user/change",method=RequestMethod.POST)
 public String changeUserPassword(@RequestParam Integer id,@RequestParam String oldpassword,@RequestParam String newpassword,ModelMap model) {
 	Employee employee = repository.findById(id);
-	if(!((id==(employee.getId()))&&((oldpassword.equals(employee.getPassword()))))) {
+	if(employee==null) {
+		model.put("message1","Employee Not Found");
+		return "changePassword";
+	}
+	else if(!((id==(employee.getId()))&&((oldpassword.equals(employee.getPassword()))))) {
 		model.put("message1","Invalid Credentials");
 		return "changePassword";
 	}
