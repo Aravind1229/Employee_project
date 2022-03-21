@@ -34,7 +34,7 @@ http
       .csrf().disable()
       .authorizeRequests()
       .antMatchers("/","home","/user/*","loginUser","changePassword"
-    		  ,"details2","/change","*.jpg","details2","/user").permitAll()
+    		  ,"details2","/change","*.jpg","details2","/user","/images/*").permitAll()
       .antMatchers("/admin/*","/login","/logout","login","logout","/admin").hasRole(ADMIN.name())
       .anyRequest()
       .authenticated()

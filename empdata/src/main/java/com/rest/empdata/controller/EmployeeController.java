@@ -68,6 +68,10 @@ public String firstnameUpdate() {
 public String lastnameUpdate() {
 	return "updateLastName";
 }
+@RequestMapping(value="/user/changepassword")
+public String changePassword() {
+	return "chngePassword";
+}
 @RequestMapping(path= "/admin/details")
 public String getAllEmployees(Model model) 
 {		
